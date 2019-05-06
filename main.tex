@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Modelling and simulation of Mechatronic Systems}
+\author{Jonathan Smyth, Marvin Mouroum, Askhat Issakov, Cesar Gonzalez}
+\date{April 2019}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{gensymb}
+
+\begin{document}
+
+\maketitle
+\section{Introduction}
+In this short document we define the system requirements and engineering specification of our system. Taking into consideration the maximum and minimum values to be modelled and the dimensions of our platform. This information will be based on an investigation carried out on market competitors, with confirmation of some experimental data. We are considering the over take manoeuvre when deriving our requirements.
+\section{Objective}
+The objective is to clearly identify which constraints we have within the system, which constraints might cause issues and which are of most importance. 
+We will clearly identify:
+\begin{enumerate}
+	\item Dimensions of the systems.
+    \item Upper and lower bounds of the system.
+\end{enumerate}
+\begin{tabular}{ |p{3cm}||p{2cm}|p{2.7cm}|p{1.4cm}|p{2cm}|  }
+ \hline
+ \multicolumn{5}{|c|}{System Requirements} \\
+ \hline\textbf{Constraint}&        \textbf{Values} &    \textbf{Bandwidth(Hz)}& \textbf{90$^{\circ}$ Lag}&   \textbf{Latency(ms)}\\
+ \hline
+ \textbf{Yaw(max rot)}&      60($^{\circ}$)&    35&         26&                 10\\
+ Velocity&          42($^{\circ}$/s)&     &           &                   \\
+ Accel&             300($^{\circ}$/s$^2$)&    &           &                   \\
+ \textbf{Surge(max $\Delta$)}&    1080(mm)&    $>$15&        $>$15&                8\\
+ Velocity&          800(mm/s)&     &           &                   \\
+ Accel&             686(mm/s$^2$)&       &           &                   \\
+\textbf{Sway(max $\Delta$)}&     240(mm)&     50&         35&                 7\\
+ Velocity&          200(mm/s)&     &           &                   \\
+ Accel&             686(mm/s$^2$)&       &           &                   \\
+\hline\textbf{Platform Size}&        2000x1800x 1000(mm)&  & & \\
+\hline\textbf{Weight}&        350(KGs)&  & & \\
+\hline\textbf{Workspace Dim.}&        &  & & \\
+\hline\textbf{Power Consump}&        25kV/A&  & & \\
+ \hline
+\end{tabular}
+\subsection{Reasoning for choices}
+\begin{enumerate}
+\item Yaw - Given the manoeuvre, is the most important of the Euler angles, during an over take the vehicle is subject to a change in angle in the Yaw plane, denoting a change in angle during the turn out and turn back in.
+\item Surge - During the acceleration, the vehicle is subject to a movement along the longitudinal horizontal axis, this allows the user to feel to simulation of acceleration/deceleration.  
+\item Sway - This is important for the lateral movement in the horizontal axis,  this allows the user to feel the simulation of pulling out to take over and pulling back in. 
+\end{enumerate}
+\section{Methodology}
+\subsection{Research}
+Based on intense research performed to determine the state of the art in the vehicle simulators available on the market and knowing the manoeuvres intended to perform as the behaviour of the final system , the methodology implemented were to first determine the key factors in order to achieve the intended behaviour during the entire simulation and then establish a sufficient range of input variables (i.e. dimensions , torques , etc. .) that will produce the required accelerations actuating in the system to match a real world behaviour through the entire motion time (perceived as the output ).
+
+\subsection{Experimental Approach}
+The next step during our methodology was to acquire experimental data from an Inertial Measurement Unit in order to confirm that the capabilities of the system will be able to replicate the desired behaviour during the real world manoeuvre.
+\end{document}
